@@ -32,6 +32,6 @@ Route::get('/create-post', function () {
     return view('welcome');
 });
  */
-Route::get('/', [SiteController::class, 'index']);
+Route::get('/', [SiteController::class, 'index'])->name('index');
 Route::get('/create-post', [SiteController::class, 'create'])->name('create');
 Route::post('/salvar-post', [SiteController::class, 'store'])->name('create.store');

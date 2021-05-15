@@ -26,7 +26,7 @@ class SiteController extends Controller
             'title' => $request->title,
             'body' => $request->body,
         ]);
-        
-        return redirect()->route('create');
+
+        return redirect()->route('index');
     }
 }
