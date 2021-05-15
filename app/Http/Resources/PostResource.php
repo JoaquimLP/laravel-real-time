@@ -18,7 +18,7 @@ class PostResource extends JsonResource
         return [
             'name' => $this->title,
             'body' => $this->body,
-            'date' => Carbon::parse($this->created)->format('d/m/Y H:i:s')
+            'date' => Carbon::parse($this->created_at)->format('d/m/Y H:i:s')
 
         ];
     }

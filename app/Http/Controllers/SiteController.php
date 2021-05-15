@@ -22,10 +22,11 @@ class SiteController extends Controller
     {
         $user = User::first();
 
-        $post = $user->post()->create([
+        $user->post()->create([
             'title' => $request->title,
             'body' => $request->body,
         ]);
-        return view('site.home.create');
+        
+        return redirect()->route('create');
     }
 }

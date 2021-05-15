@@ -1,10 +1,11 @@
 <template>
     <div>
-        <h1>Post</h1>
+        <h1 class="text-center text-3x1 uppercase font-black py-8">Post</h1>
 
-        <div v-for="(post, index) in posts.data" :key="index">
-            <p>{{post.name}}</p>
-            <p>{{post.date}}</p>
+        <div class="bg-white w-full p-4 my-4 rounded-xl shadow border"
+            v-for="(post, index) in posts.data" :key="index">
+            <p class="text-center text-2xl py-4">{{post.name}}</p>
+            <p class="text-sm font-bold text-gray-800">{{post.date}}</p>
             <p>{{post.body}}</p>
         </div>
     </div>
@@ -13,9 +14,13 @@
 
 <script>
 import axios from 'axios'
+import Bus from '../../bus'
 export default {
     mounted(){
         this.loadPosts()
+        Bus.$on('post.created', post => {
+            this.posts.data.unshift(post)
+        })
     },
     data() {
         return {
