@@ -126,7 +126,8 @@
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
                 </div>
-            </div>
+            </div>{{-- laravel-echo-server start --}}
         </div>
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </body>
 </html>
