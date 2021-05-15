@@ -23,7 +23,7 @@ Route::get('/create-post', function () {
 
     $post = $user->post()->create([
         'title' => Str::random(10),
-        'body' => Str::random(400),
+        'body' => Str::random(10),
     ]);
     return 'ok';
 });
@@ -33,3 +33,5 @@ Route::get('/create-post', function () {
 });
  */
 Route::get('/', [SiteController::class, 'index']);
+Route::get('/create-post', [SiteController::class, 'create'])->name('create');
+Route::post('/salvar-post', [SiteController::class, 'store'])->name('create.store');
