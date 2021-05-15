@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\PostCreated;
+use App\Http\Controllers\SiteController;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
@@ -21,12 +22,14 @@ Route::get('/create-post', function () {
     $user = User::first();
 
     $post = $user->post()->create([
-        'title' => Str::random(150),
+        'title' => Str::random(10),
         'body' => Str::random(400),
     ]);
     return 'ok';
 });
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
 });
+ */
+Route::get('/', [SiteController::class, 'index']);

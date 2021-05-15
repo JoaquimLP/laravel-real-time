@@ -1,11 +1,5 @@
 const mix = require('laravel-mix');
 
-resolve: {
-    alias: {
-      vue: 'vue/dist/vue.js'
-    }
-  }
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -20,4 +14,4 @@ resolve: {
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
-    ]);
+    ]).vue({ version: 2 });
